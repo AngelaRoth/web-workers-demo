@@ -49,7 +49,7 @@
     };
 
     if (window.Worker) {
-      var myWorker = new Worker("worker.js");
+      var myWorker = new Worker("scripts/worker.js");
       myWorker.postMessage(workerInfo);
       console.log('Message posted to worker');
 
