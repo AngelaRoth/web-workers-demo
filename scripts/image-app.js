@@ -56,31 +56,12 @@
       console.log('Message posted to worker');
 
       myWorker.onmessage = function(e) {
-        imageData = e.data;
+        toggleButtonsAbledness();
+        return ctx.putImageData(e.data, 0, 0);
         console.log('Message received');
-        console.log(imageData)
+        console.log(e.data)
       };
     }
-
-
-/*
-    length = imageData.data.length / 4;
-    for (i = j = 0, ref = length; 0 <= ref ? j <= ref : j >= ref; i = 0 <= ref ? ++j : --j) {
-      r = imageData.data[i * 4 + 0];
-      g = imageData.data[i * 4 + 1];
-      b = imageData.data[i * 4 + 2];
-      a = imageData.data[i * 4 + 3];
-      pixel = manipulate(type, r, g, b, a);
-      imageData.data[i * 4 + 0] = pixel[0];
-      imageData.data[i * 4 + 1] = pixel[1];
-      imageData.data[i * 4 + 2] = pixel[2];
-      imageData.data[i * 4 + 3] = pixel[3];
-    }
-*/
-
-
-    toggleButtonsAbledness();
-    return ctx.putImageData(imageData, 0, 0);
   };
 
   function revertImage() {
