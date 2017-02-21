@@ -37,6 +37,8 @@
   function manipulateImage(type) {
     var a, b, g, i, imageData, j, length, pixel, r, ref;
     imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    console.log('before');
+    console.log(imageData);
 
     toggleButtonsAbledness();
 
@@ -56,6 +58,7 @@
       myWorker.onmessage = function(e) {
         imageData = e.data;
         console.log('Message received');
+        console.log(imageData)
       };
     }
 
